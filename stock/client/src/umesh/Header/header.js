@@ -45,28 +45,28 @@ class Header extends Component {
             user: ''
         })
 
-        window.location.replace('/login')
+        window.location.assign('http://35.226.239.6:3000/login')
     }
     profileLink = e => {
-        window.location.replace('/profile');
+        window.location.assign('http://35.226.239.6:3000/profile');
     }
     AddUser = e => {
-        window.location.replace('/adminReg');
+        window.location.assign('http://35.226.239.6:3000/adminReg');
     }
     ViewUsers = e => {
-        window.location.replace('/getAll');
+        window.location.assign('http://35.226.239.6:3000/getAll');
     }
     AddStock = e => {
-        window.location.replace('/adminCreateStockCategory');
+        window.location.assign('http://34.69.87.244:3000/adminCreateStockCategory');
     }
     ViewStock = e => {
-        window.location.replace('/adminViewStockCategory');
+        window.location.assign('http://34.69.87.244:3000/adminViewStockCategory');
     }
     AddSupplier = e => {
-        window.location.replace('/adminCreateSuppliers');
+        window.location.assign('http://34.69.87.244:3000/adminCreateSuppliers');
     }
     ViewSupplier = e => {
-        window.location.replace('/adminViewSuppliers');
+        window.location.assign('http://34.69.87.244:3000/adminViewSuppliers');
     }
     // AddCategory = e => {
     //     window.location.replace('#');
@@ -75,19 +75,19 @@ class Header extends Component {
     //     window.location.replace('#');
     // }
     AddCWorkout = e => {
-        window.location.replace('/workout');
+        window.location.assign('http://34.123.119.1:3000/workout');
     }
     ViewWorkout = e => {
-        window.location.replace('/workoutEmployeeShow');
+        window.location.assign('http://34.123.119.1:3000/workoutEmployeeShow');
     }
     BuyWorkout = e => {
-        window.location.replace('/question');
+        window.location.assign('http://34.123.119.1:3000/question');
     }
     ViewWorkoutUser = e => {
-        window.location.replace('/workoutUserShow/'+this.state.id);
+        window.location.assign('http://34.123.119.1:3000/workoutUserShow/'+this.state.id);
     }
     ViewAllWorkoutUser= e => {
-        window.location.replace('/workoutUserAllShow');
+        window.location.assign('http://34.123.119.1:3000/workoutUserAllShow');
     }
 
     componentDidMount() {
@@ -103,7 +103,7 @@ class Header extends Component {
         })
         axios({
             method: 'get',
-            url: 'http://localhost:5000/users/',
+            url: '/users/',
             headers: {
                 Authorization: token
             },
@@ -150,12 +150,12 @@ class Header extends Component {
                             :
                             null
                         }
-                        {/* {localStorage.getItem('userPosition')=== "admin" ? */}
+                        {localStorage.getItem('userPosition')=== "admin" ?
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                {/* <li className="nav-item">
+                                <li className="nav-item">
                                     <a className="nav-link active" aria-current="page"
-                                       href="/admin">Home</a>
-                                </li> */}
+                                       href="http://35.226.239.6:3000/admin">Home</a>
+                                </li>
                                 <li className="nav-item dropdown">
                                     <UncontrolledDropdown nav>
                                         <DropdownToggle nav caret>
@@ -205,10 +205,10 @@ class Header extends Component {
                                     </UncontrolledDropdown>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/createStore">Add Store</a>
+                                    <a className="nav-link" href="http://34.72.79.194:3000/createStore">Add Store</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/workoutAdminShow">View Workout</a>
+                                    <a className="nav-link" href="http://34.123.119.1:3000/workoutAdminShow">View Workout</a>
                                 </li>
                                 {/*<li className="nav-item dropdown">*/}
                                 {/*    <UncontrolledDropdown nav>*/}
@@ -227,20 +227,20 @@ class Header extends Component {
                                 {/*    </UncontrolledDropdown>*/}
                                 {/*</li>*/}
                             </ul>
-                            {/* :
+                            :
                             null
-                        } */}
-                        {/* {localStorage.getItem('userPosition') === "employee" ? */}
+                        }
+                        {localStorage.getItem('userPosition') === "employee" ?
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                {/* <li className="nav-item">
-                                    <a className="nav-link active" aria-current="page"
-                                       href="/employee">Home</a>
-                                </li> */}
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/adminViewStockCategory">View Stock</a>
+                                    <a className="nav-link active" aria-current="page"
+                                       href="http://35.226.239.6:3000/employee">Home</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/empViewStore">View Store</a>
+                                    <a className="nav-link" href="http://34.72.79.194:3000/adminViewStockCategory">View Stock</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="http://34.72.79.194:3000/empViewStore">View Store</a>
                                 </li>
                                 <li className="nav-item dropdown">
                                     <UncontrolledDropdown nav>
@@ -259,17 +259,17 @@ class Header extends Component {
                                     </UncontrolledDropdown>
                                 </li>
                             </ul>
-                            {/* :
+                            :
                             null
-                        } */}
-                        {/* {localStorage.getItem('userPosition') === "user" ? */}
+                        }
+                        {localStorage.getItem('userPosition') === "user" ?
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                {/* <li className="nav-item">
-                                    <a className="nav-link active" aria-current="page"
-                                       href="/user">Home</a>
-                                </li> */}
                                 <li className="nav-item">
-                                    <a className="nav-link" href="/viewStore">Store</a>
+                                    <a className="nav-link active" aria-current="page"
+                                       href="http://35.226.239.6:3000/user">Home</a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="http://34.72.79.194:3000/viewStore">Store</a>
                                 </li>
                                 <li className="nav-item dropdown">
                                     <UncontrolledDropdown nav>
@@ -295,11 +295,11 @@ class Header extends Component {
                                 {/*    <a className="nav-link" href="#">Cart</a>*/}
                                 {/*</li>*/}
                             </ul>
-                            {/* :
+                            :
                             null
-                        } */}
-                        {/* {localStorage.getItem('userPosition') === "admin" || localStorage.getItem('userPosition') === "employee" ||
-                        localStorage.getItem('userPosition') === "user" || localStorage.getItem('userPosition') === " " ||  !this.state.isLoggedIn ? */}
+                        }
+                        {localStorage.getItem('userPosition') === "admin" || localStorage.getItem('userPosition') === "employee" ||
+                        localStorage.getItem('userPosition') === "user" || localStorage.getItem('userPosition') === " " ||  !this.state.isLoggedIn ?
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li className="nav-item">
                                     <a className="nav-link" aria-current="page"
@@ -310,12 +310,12 @@ class Header extends Component {
                                        href="/contactUs">Contact us</a>
                                 </li>
                             </ul>
-                            {/* :
+                            :
                             null
-                        } */}
+                        }
                     </Nav>
-                    {/* {localStorage.getItem('userPosition') === "admin" || localStorage.getItem('userPosition') === "employee" ||
-                    localStorage.getItem('userPosition') === "user" ? */}
+                    {localStorage.getItem('userPosition') === "admin" || localStorage.getItem('userPosition') === "employee" ||
+                    localStorage.getItem('userPosition') === "user" ?
                         <Nav className="ml-auto">
                             <UncontrolledDropdown nav>
                                 <DropdownToggle nav caret style={{color: 'white'}}>
@@ -335,14 +335,14 @@ class Header extends Component {
                                 </DropdownMenu>
                             </UncontrolledDropdown>
                         </Nav>
-                        {/* :
+                        :
                         null
-                    } */}
-                    {/* { localStorage.getItem('userPosition') !== "admin" &&
+                    }
+                    { localStorage.getItem('userPosition') !== "admin" &&
                     localStorage.getItem('userPosition') !== "employee" &&
                     localStorage.getItem('userPosition') !== "user" ||
-                    localStorage.getItem('userPosition') === " " ? */}
-                        {/* <Nav className="btn pull-right">
+                    localStorage.getItem('userPosition') === " " ?
+                        <Nav className="btn pull-right">
                             <a href="/login"><Button className="button "
                                                      variant="outline-primary">Login</Button></a>
                             &nbsp;
@@ -352,7 +352,7 @@ class Header extends Component {
                         </Nav>
                         :
                         null
-                    } */}
+                    }
                 </Navbar.Collapse>
             </Navbar>
         );
