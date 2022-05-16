@@ -101,14 +101,14 @@ class CreateStockItemAdmin extends Component {
         if (this.state.item_name.length < 0 ||  this.state.item_suppliers.length < 0 || this.state.item_description.length < 10) {
             this.validate(this.state.item_name, this.state.item_quantity, this.state.item_price, this.state.item_suppliers, this.state.item_description)
         } else{
-            axios.post('http://localhost:5000/StockCategoryItem', item)
+            axios.post('/StockCategoryItem', item)
                 .then(response => {
                     SubmissionAlert();
                     let details = {
                         categoryID: this.props.match.params.id,
                         itemID: response.data.data._id,
                     };
-                    axios.patch(`http://localhost:5000/StockCategory/item`, details)
+                    axios.patch(`/StockCategory/item`, details)
                         .then(response => {
                             window.location.replace("/adminViewStockCategory");
                         })

@@ -32,14 +32,14 @@ class AdminStockItemsView extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:5000/StockCategory/${this.props.match.params.id}`)
+        axios.get(`/StockCategory/${this.props.match.params.id}`)
             .then(response => {
                 this.setState({stockItems: response.data.data.stock_items});
             })
     }
 
     deleteItem(id) {
-        axios.delete(`http://localhost:5000/StockCategoryItem/${id}`)
+        axios.delete(`/StockCategoryItem/${id}`)
             .then(response => {
                 this.setState({stockItems: response.data.data});
 

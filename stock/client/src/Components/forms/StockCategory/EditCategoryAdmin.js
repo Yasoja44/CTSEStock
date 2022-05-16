@@ -45,7 +45,7 @@ class EditCategoryAdmin extends Component {
 
     componentDidMount() {
 
-        axios.get(`http://localhost:5000/StockCategory/${this.props.match.params.id}`)
+        axios.get(`/StockCategory/${this.props.match.params.id}`)
             .then(response => {
                 this.setState(
                     {
@@ -103,7 +103,7 @@ class EditCategoryAdmin extends Component {
             }
         else
             {
-                axios.put(`http://localhost:5000/StockCategory/${this.props.match.params.id}`, category)
+                axios.put(`/StockCategory/${this.props.match.params.id}`, category)
                     .then(response => {
                         SubmissionAlert();
                         window.location.replace("/adminViewStockCategory");

@@ -81,7 +81,7 @@ class CreateCategoryAdmin extends Component {
         if (this.state.category_topic.length <=0 || this.state.category_topic.length > 20 || this.state.category_description.length < 10){
             this.validate(this.state.category_topic,this.state.category_description)
         } else {
-            axios.post('http://localhost:5000/StockCategory', category)
+            axios.post('/StockCategory', category)
                 .then(response => {
                     SubmissionAlert();
                     window.location.replace("/adminViewStockCategory");

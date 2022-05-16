@@ -31,14 +31,14 @@ class AdminCategoryView extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/StockCategory/')
+        axios.get('/StockCategory/')
             .then(response => {
                 this.setState({stockCategory: response.data.data });
             })
     }
 
     deleteCategory(id){
-        axios.delete(`http://localhost:5000/StockCategory/${id}`)
+        axios.delete(`/StockCategory/${id}`)
             .then(response => {
                 this.setState({ stockCategory: response.data.data });
             })

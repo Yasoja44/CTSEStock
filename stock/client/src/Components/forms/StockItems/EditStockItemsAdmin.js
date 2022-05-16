@@ -52,7 +52,7 @@ class EditStockItemsAdmin extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:5000/StockCategoryItem/${this.props.match.params.id}`)
+        axios.get(`/StockCategoryItem/${this.props.match.params.id}`)
             .then(response => {
                 this.setState(
                     {
@@ -124,7 +124,7 @@ class EditStockItemsAdmin extends Component {
             this.validate(this.state.item_name, this.state.item_quantity, this.state.item_price, this.state.item_suppliers, this.state.item_description)
         } else {
             console.log('DATA TO SEND', item);
-            axios.put(`http://localhost:5000/StockCategoryItem/${this.props.match.params.id}`, item)
+            axios.put(`/StockCategoryItem/${this.props.match.params.id}`, item)
                 .then(response => {
                     SubmissionAlert();
 

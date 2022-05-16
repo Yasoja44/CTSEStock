@@ -40,7 +40,7 @@ class AdminSupplierView extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/Suppliers/')
+        axios.get('/Suppliers/')
             .then(response => {
                 this.setState({suppliers: response.data.data });
             })
@@ -51,7 +51,7 @@ class AdminSupplierView extends Component {
     };
 
     deleteSuppliers(id){
-        axios.delete(`http://localhost:5000/Suppliers/${id}`)
+        axios.delete(`/Suppliers/${id}`)
             .then(response => {
                 this.setState({ suppliers: response.data.data });
             }).then(response=> {

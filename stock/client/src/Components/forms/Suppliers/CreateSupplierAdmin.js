@@ -107,7 +107,7 @@ class CreateSupplierAdmin extends Component {
         } else {
 
         console.log('DATA TO SEND', supplier);
-        axios.post('http://localhost:5000/Suppliers', supplier)
+        axios.post('/Suppliers', supplier)
             .then(response => {
                 SubmissionAlert();
                 window.location.replace("/adminViewSuppliers");

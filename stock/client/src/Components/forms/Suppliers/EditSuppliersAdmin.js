@@ -48,7 +48,7 @@ class EditSuppliersAdmin extends Component {
 
     componentDidMount() {
 
-        axios.get(`http://localhost:5000/Suppliers/${this.props.match.params.id}`)
+        axios.get(`/Suppliers/${this.props.match.params.id}`)
             .then(response => {
                 this.setState(
                     {
@@ -124,7 +124,7 @@ class EditSuppliersAdmin extends Component {
         }else {
 
             console.log('DATA TO SEND', supplier)
-            axios.put(`http://localhost:5000/Suppliers/${this.props.match.params.id}`, supplier)
+            axios.put(`/Suppliers/${this.props.match.params.id}`, supplier)
                 .then(response => {
                     SubmissionAlert();
                     window.location.replace("/adminViewSuppliers");
