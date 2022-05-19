@@ -1,0 +1,41 @@
+---
+apiVersion: "apps/v1"
+kind: "Deployment"
+metadata:
+  name: "ctse-stock-client"
+  namespace: "default"
+  labels:
+    app: "ctse-stock-client"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: "ctse-stock-client"
+  template:
+    metadata:
+      labels:
+        app: "ctse-stock-client"
+    spec:
+      containers:
+      - name: "ctsestock-1"
+        image: "gcr.io/animated-backup-349310/github.com/yasoja44/ctsestock:$SHORT_SHA"
+---
+apiVersion: "autoscaling/v2beta1"
+kind: "HorizontalPodAutoscaler"
+metadata:
+  name: "ctse-stock-client-hpa-ahih"
+  namespace: "default"
+  labels:
+    app: "ctse-stock-client"
+spec:
+  scaleTargetRef:
+    kind: "Deployment"
+    name: "ctse-stock-client"
+    apiVersion: "apps/v1"
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+  - type: "Resource"
+    resource:
+      name: "cpu"
+      targetAverageUtilization: 80
